@@ -35,7 +35,7 @@ const HeroSection = () => {
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-primary-foreground leading-tight mb-6">
             Soluções Inteligentes para{" "}
-            <span className="gradient-text">Negócios Mais Eficientes</span>
+            <span className="gradient-text text-primary-foreground">Negócios Mais Eficientes</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-primary-foreground/70 max-w-2xl mb-10 leading-relaxed">
