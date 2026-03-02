@@ -11,8 +11,8 @@ const HeroSection = () => {
         <img
           src={heroBg}
           alt="Technology background"
-          className="w-full h-full object-cover"
-        />
+          className="w-full h-full object-cover" />
+        
         <div className="absolute inset-0 bg-gradient-to-b from-foreground/70 via-foreground/60 to-background" />
       </div>
 
@@ -21,14 +21,14 @@ const HeroSection = () => {
           className="max-w-3xl"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
+          transition={{ duration: 0.8, ease: "easeOut" }}>
+          
           <motion.div
             className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
+            transition={{ delay: 0.2 }}>
+            
             <Sparkles size={14} className="text-accent" />
             <span className="text-xs font-medium text-primary-foreground/80">Automação de Processos & Inteligência de Dados</span>
           </motion.div>
@@ -53,15 +53,15 @@ const HeroSection = () => {
               size="lg"
               variant="outline"
               className="text-base px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
-              asChild
-            >
-              <a href="#contact">Fale Conosco</a>
+              asChild>
+              
+              <a href="#contact" className="text-primary">Fale Conosco</a>
             </Button>
           </div>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;
