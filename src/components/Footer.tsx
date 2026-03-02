@@ -10,27 +10,27 @@ const Footer = () => {
               Leet<span className="text-accent">Solutions</span>
             </h3>
             <p className="text-primary-foreground/60 text-sm leading-relaxed">
-              Intelligent solutions for business automation and data efficiency.
+              Soluções inteligentes para automação empresarial e eficiência de dados.
             </p>
           </div>
 
           <div>
-            <h4 className="font-display font-semibold mb-3 text-sm">Quick Links</h4>
+            <h4 className="font-display font-semibold mb-3 text-sm">Links Rápidos</h4>
             <div className="space-y-2">
-              {["About", "Solutions", "Portfolio", "Contact"].map((link) => (
+              {[{ label: "Sobre", href: "about" }, { label: "Soluções", href: "solutions" }, { label: "Portfólio", href: "portfolio" }, { label: "Contato", href: "contact" }].map((link) => (
                 <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
+                  key={link.href}
+                  href={`#${link.href}`}
                   className="block text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
                 >
-                  {link}
+                  {link.label}
                 </a>
               ))}
             </div>
           </div>
 
           <div>
-            <h4 className="font-display font-semibold mb-3 text-sm">Contact</h4>
+            <h4 className="font-display font-semibold mb-3 text-sm">Contato</h4>
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-sm text-primary-foreground/60">
                 <Mail size={14} />
@@ -46,7 +46,7 @@ const Footer = () => {
 
         <div className="border-t border-primary-foreground/10 pt-6 text-center">
           <p className="text-xs text-primary-foreground/40">
-            © {new Date().getFullYear()} Leet Solutions. All rights reserved.
+            © {new Date().getFullYear()} Leet Solutions. Todos os direitos reservados.
           </p>
         </div>
       </div>

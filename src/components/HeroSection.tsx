@@ -30,22 +30,22 @@ const HeroSection = () => {
             transition={{ delay: 0.2 }}
           >
             <Sparkles size={14} className="text-accent" />
-            <span className="text-xs font-medium text-primary-foreground/80">Business Process Automation & Data Intelligence</span>
+            <span className="text-xs font-medium text-primary-foreground/80">Automação de Processos & Inteligência de Dados</span>
           </motion.div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-primary-foreground leading-tight mb-6">
-            Intelligent Solutions for{" "}
-            <span className="gradient-text">Smarter Businesses</span>
+            Soluções Inteligentes para{" "}
+            <span className="gradient-text">Negócios Mais Eficientes</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-primary-foreground/70 max-w-2xl mb-10 leading-relaxed">
-            We help companies automate processes, organize data and improve efficiency through smart technology solutions.
+            Ajudamos empresas a automatizar processos, organizar dados e melhorar a eficiência através de soluções tecnológicas inteligentes.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="text-base px-8" asChild>
               <a href="#solutions">
-                View Solutions
+                Ver Soluções
                 <ArrowRight size={18} className="ml-2" />
               </a>
             </Button>
@@ -55,7 +55,7 @@ const HeroSection = () => {
               className="text-base px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
               asChild
             >
-              <a href="#contact">Contact Us</a>
+              <a href="#contact">Fale Conosco</a>
             </Button>
           </div>
         </motion.div>

@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Cpu, BarChart3, Zap, BrainCircuit } from "lucide-react";
 
 const pillars = [
-  { icon: Zap, title: "Intelligent Automation", desc: "Streamline workflows with smart automation tools." },
-  { icon: Cpu, title: "Process Optimization", desc: "Eliminate bottlenecks and improve operational flow." },
-  { icon: BarChart3, title: "Data Intelligence", desc: "Transform raw data into actionable business insights." },
-  { icon: BrainCircuit, title: "AI-Powered Solutions", desc: "Leverage AI to enhance decision-making and efficiency." },
+  { icon: Zap, title: "Automação Inteligente", desc: "Otimize fluxos de trabalho com ferramentas de automação inteligentes." },
+  { icon: Cpu, title: "Otimização de Processos", desc: "Elimine gargalos e melhore o fluxo operacional." },
+  { icon: BarChart3, title: "Inteligência de Dados", desc: "Transforme dados brutos em insights acionáveis para o negócio." },
+  { icon: BrainCircuit, title: "Soluções com IA", desc: "Utilize IA para aprimorar a tomada de decisão e a eficiência." },
 ];
 
 const AboutSection = () => {
@@ -20,13 +20,13 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-6">
-            About <span className="gradient-text">Leet Solutions</span>
+            Sobre a <span className="gradient-text">Leet Solutions</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-            Leet Solutions helps businesses modernize their operations through automation and data intelligence. We bridge the gap between complex technology and real business results.
+            A Leet Solutions ajuda empresas a modernizar suas operações através de automação e inteligência de dados. Conectamos tecnologia complexa a resultados reais de negócio.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            Our purpose is to help businesses become more competitive by using technology to eliminate manual work and improve decision making.
+            Nosso propósito é ajudar empresas a se tornarem mais competitivas usando tecnologia para eliminar trabalho manual e melhorar a tomada de decisão.
           </p>
         </motion.div>
 

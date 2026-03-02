@@ -4,28 +4,28 @@ import { CalendarCheck, MessageCircle, Bell, UserPlus, RefreshCw } from "lucide-
 const projects = [
   {
     icon: CalendarCheck,
-    title: "Smart Scheduling Assistant",
-    description: "Automated appointment scheduling through WhatsApp integrated with Google Calendar.",
+    title: "Assistente de Agendamento",
+    description: "Agendamento automatizado de consultas via WhatsApp integrado ao Google Calendar.",
   },
   {
     icon: MessageCircle,
-    title: "Smart Customer Assistant",
-    description: "Automated customer service that answers frequently asked questions and assists clients 24/7.",
+    title: "Assistente de Atendimento",
+    description: "Atendimento automatizado que responde perguntas frequentes e auxilia clientes 24/7.",
   },
   {
     icon: Bell,
-    title: "Smart Reminder System",
-    description: "Automatic reminders sent to customers to reduce missed appointments.",
+    title: "Sistema de Lembretes",
+    description: "Lembretes automáticos enviados aos clientes para reduzir faltas em compromissos.",
   },
   {
     icon: UserPlus,
-    title: "Smart Lead Capture",
-    description: "Automatic collection and organization of customer leads from forms and messages.",
+    title: "Captura de Leads",
+    description: "Coleta e organização automática de leads a partir de formulários e mensagens.",
   },
   {
     icon: RefreshCw,
-    title: "Smart Follow-Up System",
-    description: "Automatic messages sent to inactive customers to increase retention.",
+    title: "Sistema de Follow-Up",
+    description: "Mensagens automáticas enviadas a clientes inativos para aumentar a retenção.",
   },
 ];
 
@@ -40,10 +40,10 @@ const PortfolioSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-4">
-            <span className="gradient-text">Portfolio</span>
+            <span className="gradient-text">Portfólio</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Solutions we've built to help businesses operate smarter and grow faster.
+            Soluções que desenvolvemos para ajudar empresas a operar de forma mais inteligente e crescer mais rápido.
           </p>
         </motion.div>
 
