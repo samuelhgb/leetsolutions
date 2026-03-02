@@ -4,18 +4,18 @@ import { Cog, Database, Bot } from "lucide-react";
 const services = [
   {
     icon: Cog,
-    title: "Process Automation",
-    description: "We automate repetitive and manual tasks, allowing your team to focus on what really matters.",
+    title: "Automação de Processos",
+    description: "Automatizamos tarefas repetitivas e manuais, permitindo que sua equipe foque no que realmente importa.",
   },
   {
     icon: Database,
-    title: "Data Intelligence",
-    description: "We organize and transform business data into valuable insights that support better decision making.",
+    title: "Inteligência de Dados",
+    description: "Organizamos e transformamos dados empresariais em insights valiosos que apoiam melhores decisões.",
   },
   {
     icon: Bot,
-    title: "AI-Powered Solutions",
-    description: "We implement intelligent systems that interact with customers and employees to streamline daily operations.",
+    title: "Soluções com IA",
+    description: "Implementamos sistemas inteligentes que interagem com clientes e colaboradores para otimizar operações diárias.",
   },
 ];
 
@@ -30,10 +30,10 @@ const ServicesSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-4">
-            Our <span className="gradient-text">Solutions</span>
+            Nossas <span className="gradient-text">Soluções</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            We deliver tailored technology solutions that drive real results for your business.
+            Entregamos soluções tecnológicas sob medida que geram resultados reais para o seu negócio.
           </p>
         </motion.div>
 

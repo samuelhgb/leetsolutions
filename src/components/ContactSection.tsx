@@ -12,7 +12,7 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Message sent!", description: "We'll get back to you shortly." });
+    toast({ title: "Mensagem enviada!", description: "Retornaremos em breve." });
     setForm({ name: "", email: "", message: "" });
   };
 
@@ -26,10 +26,10 @@ const ContactSection = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-4">
-              <span className="gradient-text">Contact Us</span>
+              <span className="gradient-text">Fale Conosco</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              Tell us about your business and we will design the right automation solution for you.
+              Conte-nos sobre o seu negócio e criaremos a solução de automação ideal para você.
             </p>
 
             <div className="space-y-4">
@@ -62,11 +62,11 @@ const ContactSection = () => {
             viewport={{ once: true }}
           >
             <div>
-              <label className="text-sm font-medium text-foreground mb-1.5 block">Name</label>
+              <label className="text-sm font-medium text-foreground mb-1.5 block">Nome</label>
               <Input
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                placeholder="Your name"
+                placeholder="Seu nome"
                 required
               />
             </div>
@@ -81,17 +81,17 @@ const ContactSection = () => {
               />
             </div>
             <div>
-              <label className="text-sm font-medium text-foreground mb-1.5 block">Message</label>
+              <label className="text-sm font-medium text-foreground mb-1.5 block">Mensagem</label>
               <Textarea
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                placeholder="Tell us about your project..."
+                placeholder="Conte-nos sobre o seu projeto..."
                 rows={4}
                 required
               />
             </div>
             <Button type="submit" className="w-full" size="lg">
-              Send Message
+              Enviar Mensagem
               <Send size={16} className="ml-2" />
             </Button>
           </motion.form>

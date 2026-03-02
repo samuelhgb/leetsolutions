@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import { Settings2, Rocket, Monitor, TrendingUp, Shield } from "lucide-react";
 
 const advantages = [
-  { icon: Settings2, title: "Custom Solutions", desc: "Every solution is tailored to your specific business needs and workflows." },
-  { icon: Rocket, title: "Fast Implementation", desc: "We deliver and deploy solutions quickly so you see results sooner." },
-  { icon: Monitor, title: "Modern Technology", desc: "We use the latest tools and platforms to keep you ahead of the curve." },
-  { icon: TrendingUp, title: "Scalable Systems", desc: "Our solutions grow with your business, handling increasing demand effortlessly." },
-  { icon: Shield, title: "Automation Specialists", desc: "Deep expertise in process automation with a proven track record." },
+  { icon: Settings2, title: "Soluções Personalizadas", desc: "Cada solução é feita sob medida para as necessidades e fluxos do seu negócio." },
+  { icon: Rocket, title: "Implementação Rápida", desc: "Entregamos e implantamos soluções rapidamente para que você veja resultados antes." },
+  { icon: Monitor, title: "Tecnologia Moderna", desc: "Usamos as ferramentas e plataformas mais recentes para manter você à frente." },
+  { icon: TrendingUp, title: "Sistemas Escaláveis", desc: "Nossas soluções crescem com o seu negócio, lidando com demandas crescentes sem esforço." },
+  { icon: Shield, title: "Especialistas em Automação", desc: "Expertise profunda em automação de processos com um histórico comprovado." },
 ];
 
 const WhyChooseSection = () => {
@@ -20,10 +20,10 @@ const WhyChooseSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-4">
-            Why Choose <span className="gradient-text">Leet Solutions</span>
+            Por que escolher a <span className="gradient-text">Leet Solutions</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            We combine deep technical expertise with a client-focused approach to deliver exceptional results.
+            Combinamos expertise técnica profunda com uma abordagem focada no cliente para entregar resultados excepcionais.
           </p>
         </motion.div>
 
