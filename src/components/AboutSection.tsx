@@ -29,7 +29,7 @@ const services = [
 
 const AboutSection = () => {
   return (
-    <section id="about" className="section-padding bg-secondary">
+    <section id="about" className="section-padding">
       <div className="section-container">
         <motion.div
           className="max-w-3xl mx-auto text-center mb-16"
