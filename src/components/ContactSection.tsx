@@ -18,24 +18,6 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="relative min-h-screen flex items-center overflow-hidden">
-
-    {/* 🎥 VIDEO BACKGROUND */}
-    <video
-      autoPlay
-      loop
-      muted
-      playsInline
-      className="absolute inset-0 w-full h-full object-cover"
-    >
-      <source
-        src="https://video.wixstatic.com/video/d0220c_5968dd83ff6c4b3b8284e745050c0efc/1080p/mp4/file.mp4"
-        type="video/mp4"
-      />
-    </video>
-
-    {/* 🌫 OVERLAY COM BLUR */}
-    <div className="absolute inset-0 backdrop-blur-sm bg-black/60"></div>
-
       <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
           <motion.div
