@@ -17,7 +17,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding">
+    <section id="contact" className="relative min-h-screen flex items-center overflow-hidden">
       <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
           <motion.div
