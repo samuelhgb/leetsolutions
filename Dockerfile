@@ -1,3 +1,4 @@
+# 1) Build
 FROM node:20-alpine AS builder
 WORKDIR /app
 
@@ -7,9 +8,10 @@ RUN npm install
 COPY . .
 RUN npm run build
 
+# 2) Serve (Nginx)
 FROM nginx:1.27-alpine
 
-# SPA routing
+# SPA routing (React Router)
 RUN printf '%s\n' \
 'server {' \
 '  listen 80;' \
