@@ -34,11 +34,11 @@ const Footer = () => {
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-sm text-primary-foreground/60">
                 <Mail size={14} />
-                <span>contact@leetsolutions.com</span>
+                <span>contato@leetsolutions.com.br</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-primary-foreground/60">
                 <MessageSquare size={14} />
-                <span>+1 (555) 000-0000</span>
+                <span>(17) 3198-1626</span>
               </div>
             </div>
           </div>
