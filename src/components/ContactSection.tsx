@@ -17,18 +17,8 @@ const ContactSection = () => {
   };
 
   return (
-  <section
-    id="contact"
-    className="relative min-h-screen flex items-center overflow-hidden"
-  >
-    {/* 🎥 VIDEO BACKGROUND */}
-    <video
-      autoPlay
-      loop
-      muted
-      playsInline
-      className="absolute inset-0 w-full h-full object-cover"
-    >
+  <section id="contact" className="relative min-h-screen flex items-center overflow-hidden">
+    <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
       <source
         src="https://video.wixstatic.com/video/d0220c_5968dd83ff6c4b3b8284e745050c0efc/1080p/mp4/file.mp4"
         type="video/mp4"
@@ -36,7 +26,7 @@ const ContactSection = () => {
     </video>
 
     {/* 🌫 OVERLAY COM BLUR */}
-    <div className="absolute inset-0 backdrop-blur-sm bg-black/60"></div>
+    <div className="absolute inset-0 bg-black/65" />
 
     {/* 📦 CONTEÚDO */}
     <div className="relative z-10 section-container text-white">
@@ -44,9 +34,7 @@ const ContactSection = () => {
         
         {/* LADO ESQUERDO */}
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          className="p-8 space-y-5 bg-white/10 rounded-2xl border border-white/20"
         >
           <h2 className="text-3xl sm:text-4xl font-display font-bold mb-4">
             <span className="gradient-text">Fale Conosco</span>
