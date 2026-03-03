@@ -52,10 +52,10 @@ const HeroSection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="text-base px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
-              asChild>
-              
-              <a href="#contact" className="bg-primary-foreground text-primary">Fale Conosco</a>
+              className="text-base px-8 border-white text-white hover:bg-white hover:text-primary"
+              asChild
+            >
+              <a href="#contact">Fale Conosco</a>
             </Button>
           </div>
         </motion.div>
