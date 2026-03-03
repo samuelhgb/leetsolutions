@@ -34,12 +34,12 @@ const HeroSection = () => {
           </motion.div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-primary-foreground leading-tight mb-6">
-            Soluções Inteligentes para{" "}
-            <span className="gradient-text text-primary-foreground">Negócios Mais Eficientes</span>
+            Empresas Competitivas Crescem com {" "}
+            <span className="gradient-text text-primary-foreground">Soluções Inteligentes.</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-primary-foreground/70 max-w-2xl mb-10 leading-relaxed">
-            Ajudamos empresas a automatizar processos, organizar dados e melhorar a eficiência através de soluções tecnológicas inteligentes.
+            Ajudamos empresas a automatizar processos, organizar dados e melhorar a eficiência através de soluções inteligentes e tecnologia.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
