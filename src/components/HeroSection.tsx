@@ -51,8 +51,14 @@ const HeroSection = () => {
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="text-base px-8 border-white text-white hover:bg-white hover:text-primary"
+              className="
+                text-base px-8 
+                bg-white 
+                text-primary 
+                border border-white
+                hover:bg-transparent 
+                hover:text-white
+              "
               asChild
             >
               <a href="#contact">Fale Conosco</a>
