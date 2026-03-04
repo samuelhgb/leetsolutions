@@ -1,45 +1,58 @@
 import { motion } from "framer-motion";
-import { CalendarCheck, MessageCircle, Bell, UserPlus, RefreshCw } from "lucide-react";
-import { useState } from "react";
+import { Users, FileText, BarChart3, CheckCircle2 } from "lucide-react";
 
 const projects = [
   {
-    icon: CalendarCheck,
-    title: "Assistente de Agendamento",
-    description: "Agendamento automatizado de consultas via WhatsApp integrado ao Google Calendar.",
+    icon: Users,
+    title: "Sistema Inteligente de Captação de Leads",
+    description:
+      "Esta solução centraliza leads provenientes de múltiplos canais como sites, WhatsApp, formulários online e APIs externas.\n\nEm vez de perder oportunidades espalhadas em diferentes plataformas, a automação captura e organiza todos os leads automaticamente.\n\nO sistema pode classificar leads utilizando regras inteligentes ou inteligência artificial, priorizar oportunidades e enviar automaticamente os dados para plataformas de CRM como Salesforce.\n\nIsso permite que equipes comerciais foquem nas melhores oportunidades e respondam com mais rapidez aos potenciais clientes.",
+    benefits: [
+      "Centralização de leads de múltiplos canais",
+      "Classificação automática de oportunidades",
+      "Integração com CRM como Salesforce",
+      "Redução do tempo de resposta a novos clientes",
+      "Aumento da eficiência comercial",
+    ],
+    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   },
   {
-    icon: MessageCircle,
-    title: "Assistente de Atendimento",
-    description: "Atendimento automatizado que responde perguntas frequentes e auxilia clientes 24/7.",
+    icon: FileText,
+    title: "Automação de Processamento de Documentos",
+    description:
+      "Muitas empresas gastam horas digitando manualmente informações de documentos recebidos por e-mail, como notas fiscais, pedidos, contratos ou relatórios.\n\nEsta automação processa e-mails recebidos, identifica anexos e utiliza extração inteligente de dados para capturar automaticamente as informações importantes.\n\nOs dados extraídos podem ser enviados diretamente para sistemas internos, planilhas ou bancos de dados, eliminando tarefas repetitivas e reduzindo erros operacionais.",
+    benefits: [
+      "Elimina digitação manual de dados",
+      "Reduz erros operacionais",
+      "Processa documentos automaticamente",
+      "Integra dados com sistemas internos",
+      "Economiza tempo das equipes operacionais",
+    ],
+    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   },
   {
-    icon: Bell,
-    title: "Sistema de Lembretes",
-    description: "Lembretes automáticos enviados aos clientes para reduzir faltas em compromissos.",
-  },
-  {
-    icon: UserPlus,
-    title: "Captura de Leads",
-    description: "Coleta e organização automática de leads a partir de formulários e mensagens.",
-  },
-  {
-    icon: RefreshCw,
-    title: "Sistema de Follow-Up",
-    description: "Mensagens automáticas enviadas a clientes inativos para aumentar a retenção.",
+    icon: BarChart3,
+    title: "Sistema Automatizado de Relatórios Empresariais",
+    description:
+      "Muitas empresas gastam horas consolidando dados de diferentes sistemas para gerar relatórios de desempenho.\n\nEsta solução coleta dados automaticamente de múltiplas fontes, processa as informações e gera relatórios ou dashboards atualizados.\n\nOs relatórios podem ser enviados automaticamente para gestores por e-mail ou outras plataformas de comunicação, garantindo que as decisões sejam tomadas com base em informações sempre atualizadas.",
+    benefits: [
+      "Automação da coleta de dados",
+      "Geração automática de relatórios",
+      "Redução do tempo gasto em tarefas manuais",
+      "Maior visibilidade sobre indicadores do negócio",
+      "Apoio à tomada de decisões estratégicas",
+    ],
+    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   },
 ];
 
-const TYPEBOT_URL = "https://chat.leetsolutions.com.br/meu-typebot-3yp64yh";
-
 const PortfolioSection = () => {
-  const [chatOpen, setChatOpen] = useState(false);
-
   return (
     <section id="portfolio" className="section-padding bg-secondary">
       <div className="section-container">
+        {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -47,89 +60,84 @@ const PortfolioSection = () => {
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-4">
             <span className="gradient-text">Portfólio</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Soluções que desenvolvemos para ajudar empresas a operar de forma mais inteligente e crescer mais rápido.
+          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+            Soluções reais de automação desenvolvidas para melhorar operações, aumentar produtividade e ajudar empresas a crescer com mais eficiência.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Projects */}
+        <div className="flex flex-col gap-24">
           {projects.map((project, i) => {
-            const isScheduler = project.title === "Assistente de Agendamento";
+            const isReversed = i % 2 !== 0;
 
             return (
               <motion.div
                 key={project.title}
-                className="glass-card p-6 group"
-                initial={{ opacity: 0, y: 30 }}
+                className={`flex flex-col ${isReversed ? "lg:flex-row-reverse" : "lg:flex-row"} gap-8 lg:gap-12 items-center`}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <div className="w-12 h-12 rounded-xl bg-accent/10 group-hover:bg-accent/20 flex items-center justify-center mb-4 transition-colors">
-                  <project.icon size={24} className="text-accent" />
+                {/* Text side */}
+                <div className="flex-1 w-full">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                      <project.icon size={22} className="text-accent" />
+                    </div>
+                    <span className="text-xs font-semibold uppercase tracking-widest text-accent">
+                      Projeto {i + 1}
+                    </span>
+                  </div>
+
+                  <h3 className="font-display font-bold text-xl sm:text-2xl text-foreground mb-4">
+                    {project.title}
+                  </h3>
+
+                  {project.description.split("\n\n").map((paragraph, pi) => (
+                    <p
+                      key={pi}
+                      className="text-muted-foreground text-sm leading-relaxed mb-3"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+
+                  {/* Benefits */}
+                  <div className="mt-5">
+                    <span className="text-sm font-semibold text-foreground mb-3 block">
+                      Benefícios para o negócio:
+                    </span>
+                    <ul className="space-y-2">
+                      {project.benefits.map((b) => (
+                        <li key={b} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <CheckCircle2 size={16} className="text-accent mt-0.5 shrink-0" />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
 
-                <h3 className="font-display font-semibold text-foreground mb-2">{project.title}</h3>
-
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  {project.description}
-                </p>
-
-                {/* Botão "Testar" só no card do agendamento */}
-                {isScheduler && (
-                  <button
-                    type="button"
-                    onClick={() => setChatOpen(true)}
-                    className="mt-auto inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium bg-accent text-white hover:opacity-90 transition"
-                  >
-                    Testar
-                  </button>
-                )}
+                {/* Video side */}
+                <div className="flex-1 w-full">
+                  <div className="glass-card overflow-hidden rounded-2xl shadow-lg">
+                    <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                      <iframe
+                        src={project.video}
+                        title={project.title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="absolute inset-0 w-full h-full border-0"
+                      />
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             );
           })}
         </div>
       </div>
-
-      {/* MODAL / POPUP */}
-      {chatOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4"
-          onClick={() => setChatOpen(false)}
-        >
-          <div
-            className="w-full max-w-[900px] h-[80vh] bg-background rounded-2xl overflow-hidden shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header do modal */}
-            <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b">
-              <div className="flex flex-col">
-                <span className="font-semibold">Assistente de Agendamento - Dra. Angela</span>
-                <span className="text-xs text-muted-foreground">
-                  Converse e teste o agendamento em tempo real
-                </span>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => setChatOpen(false)}
-                className="rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition"
-                aria-label="Fechar"
-              >
-                ✕
-              </button>
-            </div>
-
-            {/* Iframe */}
-            <iframe
-              src={TYPEBOT_URL}
-              className="w-full h-[calc(80vh-56px)] border-0"
-              allow="microphone; camera"
-              title="Typebot - Assistente de Agendamento"
-            />
-          </div>
-        </div>
-      )}
     </section>
   );
 };
