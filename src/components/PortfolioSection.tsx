@@ -32,15 +32,22 @@ const projects = [
   },
   {
     icon: BarChart3,
-    title: "Sistema Automatizado de Relatórios Empresariais",
+    title: "Automação Inteligente de Atendimento",
     description:
-      "Muitas empresas gastam horas consolidando dados de diferentes sistemas para gerar relatórios de desempenho.\n\nEsta solução coleta dados automaticamente de múltiplas fontes, processa as informações e gera relatórios ou dashboards atualizados.\n\nOs relatórios podem ser enviados automaticamente para gestores por e-mail ou outras plataformas de comunicação, garantindo que as decisões sejam tomadas com base em informações sempre atualizadas.",
+      "Este projeto demonstra um sistema completo de automação de atendimento para empresas que precisam organizar a comunicação com clientes e reduzir tarefas operacionais repetitivas.\n\nA solução utiliza automação e inteligência artificial para atender clientes automaticamente, responder dúvidas frequentes, realizar agendamentos e enviar lembretes de compromissos.\n\nO sistema pode ser integrado a canais como WhatsApp, sites ou outras plataformas de comunicação, permitindo que empresas ofereçam atendimento rápido e organizado sem depender exclusivamente de atendimento manual.\n\nAlém de melhorar a experiência do cliente, a automação reduz o tempo gasto pela equipe com tarefas operacionais e diminui falhas no processo de agendamento.",
+    features: [
+      "Atendimento automático de clientes",
+      "Agendamento automatizado de compromissos",
+      "Remarcação e cancelamento de horários",
+      "Envio automático de lembretes de consultas ou reuniões",
+      "Integração com agendas digitais e sistemas internos",
+    ],
     benefits: [
-      "Automação da coleta de dados",
-      "Geração automática de relatórios",
-      "Redução do tempo gasto em tarefas manuais",
-      "Maior visibilidade sobre indicadores do negócio",
-      "Apoio à tomada de decisões estratégicas",
+      "Redução da carga de trabalho da equipe",
+      "Atendimento mais rápido e disponível 24/7",
+      "Menos faltas em compromissos devido a lembretes automáticos",
+      "Organização centralizada dos agendamentos",
+      "Melhor experiência para os clientes",
     ],
     video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   },
@@ -102,6 +109,23 @@ const PortfolioSection = () => {
                       {paragraph}
                     </p>
                   ))}
+
+                  {/* Features */}
+                  {'features' in project && project.features && (
+                    <div className="mt-5">
+                      <span className="text-sm font-semibold text-foreground mb-3 block">
+                        Funcionalidades principais:
+                      </span>
+                      <ul className="space-y-2">
+                        {(project as any).features.map((f: string) => (
+                          <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
+                            <CheckCircle2 size={16} className="text-accent mt-0.5 shrink-0" />
+                            <span>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
                   {/* Benefits */}
                   <div className="mt-5">
