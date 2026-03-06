@@ -22,7 +22,7 @@ Com essa automação, as equipes de atendimento deixam de lidar com processos ma
   "Maior organização no processo de atendimento",
   "Redução do tempo de resposta aos clientes",
     ],
-    video: "public/videos/projeto_reclamacao.mp4",
+    video: "/videos/projeto_reclamacao.mp4",
   },
   {
     icon: FileText,
@@ -36,7 +36,7 @@ Com essa automação, as equipes de atendimento deixam de lidar com processos ma
       "Integra dados com sistemas internos",
       "Economiza tempo das equipes operacionais",
     ],
-    video: "public/videos/automacao_documentos.mp4",
+    video: "/videos/automacao_documentos.mp4",
   },
   {
     icon: BarChart3,
@@ -50,7 +50,7 @@ Com essa automação, as equipes de atendimento deixam de lidar com processos ma
       "Organização centralizada dos agendamentos",
       "Melhor experiência para os clientes",
     ],
-    video: "public/videos/projeto_agendamento.mp4",
+    video: "/videos/projeto_agendamento.mp4",
   },
 ];
 
