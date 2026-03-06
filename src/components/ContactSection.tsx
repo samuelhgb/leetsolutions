@@ -65,7 +65,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-start lg:items-center overflow-hidden py-24"
     >
       {/* VIDEO BACKGROUND */}
       <video
