@@ -1,1 +1,4 @@
 project_id = "dbsvfcgpwekqwmebhzcv"
+
+[functions.log-usage]
+verify_jwt = false
