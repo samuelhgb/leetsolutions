@@ -125,6 +125,7 @@ const ContactSection = () => {
       setForm({
         name: "",
         email: "",
+        phone: "",
         message: "",
       });
     } catch (error) {
