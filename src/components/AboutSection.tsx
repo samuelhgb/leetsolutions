@@ -39,7 +39,7 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-6">
-            Sobre a <span className="gradient-text">Leet Solutions</span>
+            Sobre a Leet <span className="gradient-text">Solutions</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed mb-4">
             A Leet Solutions ajuda empresas a modernizar suas operações através de automação e inteligência de dados. Conectamos tecnologia complexa a resultados reais de negócio.

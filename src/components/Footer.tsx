@@ -38,7 +38,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-2 text-sm text-primary-foreground/60">
                 <MessageSquare size={14} />
-                <span>(17) 3198-1626</span>
+                <span>(17) 99749-9037</span>
               </div>
             </div>
           </div>

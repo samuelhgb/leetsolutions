@@ -4,17 +4,25 @@ import { Users, FileText, BarChart3, CheckCircle2 } from "lucide-react";
 const projects = [
   {
     icon: Users,
-    title: "Sistema Inteligente de Captação de Leads",
+    title: "Automação Inteligente de Gestão de Reclamações",
     description:
-      "Esta solução centraliza leads provenientes de múltiplos canais como sites, WhatsApp, formulários online e APIs externas.\n\nEm vez de perder oportunidades espalhadas em diferentes plataformas, a automação captura e organiza todos os leads automaticamente.\n\nO sistema pode classificar leads utilizando regras inteligentes ou inteligência artificial, priorizar oportunidades e enviar automaticamente os dados para plataformas de CRM como Salesforce.\n\nIsso permite que equipes comerciais foquem nas melhores oportunidades e respondam com mais rapidez aos potenciais clientes.",
+      `Esta solução foi desenvolvida para ajudar empresas a organizar e gerenciar reclamações recebidas por diferentes canais de atendimento.
+
+O sistema centraliza automaticamente mensagens vindas de plataformas como WhatsApp, e-mail, formulários do site, redes sociais e portais de avaliação, garantindo que nenhuma solicitação importante seja perdida ou esquecida.
+
+Utilizando inteligência artificial, a solução analisa o conteúdo das mensagens, identifica o tipo de problema, classifica a solicitação e direciona automaticamente cada caso para o fluxo adequado de atendimento.
+
+Todas as informações podem ser integradas ao CRM ou a outras ferramentas utilizadas pela empresa, permitindo acompanhar o histórico de cada cliente, organizar os atendimentos e garantir maior controle sobre a resolução das demandas.
+
+Com essa automação, as equipes de atendimento deixam de lidar com processos manuais e passam a trabalhar com informações organizadas, priorizando os casos mais importantes e respondendo aos clientes com mais agilidade.`,
     benefits: [
-      "Centralização de leads de múltiplos canais",
-      "Classificação automática de oportunidades",
-      "Integração com CRM como Salesforce",
-      "Redução do tempo de resposta a novos clientes",
-      "Aumento da eficiência comercial",
+  "Centralização de reclamações de múltiplos canais",
+  "Classificação automática de solicitações com IA",
+  "Integração com CRM e ferramentas de atendimento",
+  "Maior organização no processo de atendimento",
+  "Redução do tempo de resposta aos clientes",
     ],
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    video: "public/videos/projeto_reclamacao.mp4",
   },
   {
     icon: FileText,
@@ -28,20 +36,13 @@ const projects = [
       "Integra dados com sistemas internos",
       "Economiza tempo das equipes operacionais",
     ],
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    video: "public/videos/automacao_documentos.mp4",
   },
   {
     icon: BarChart3,
     title: "Automação Inteligente de Atendimento",
     description:
       "Este projeto demonstra um sistema completo de automação de atendimento para empresas que precisam organizar a comunicação com clientes e reduzir tarefas operacionais repetitivas.\n\nA solução utiliza automação e inteligência artificial para atender clientes automaticamente, responder dúvidas frequentes, realizar agendamentos e enviar lembretes de compromissos.\n\nO sistema pode ser integrado a canais como WhatsApp, sites ou outras plataformas de comunicação, permitindo que empresas ofereçam atendimento rápido e organizado sem depender exclusivamente de atendimento manual.\n\nAlém de melhorar a experiência do cliente, a automação reduz o tempo gasto pela equipe com tarefas operacionais e diminui falhas no processo de agendamento.",
-    features: [
-      "Atendimento automático de clientes",
-      "Agendamento automatizado de compromissos",
-      "Remarcação e cancelamento de horários",
-      "Envio automático de lembretes de consultas ou reuniões",
-      "Integração com agendas digitais e sistemas internos",
-    ],
     benefits: [
       "Redução da carga de trabalho da equipe",
       "Atendimento mais rápido e disponível 24/7",
@@ -49,7 +50,7 @@ const projects = [
       "Organização centralizada dos agendamentos",
       "Melhor experiência para os clientes",
     ],
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    video: "public/videos/projeto_agendamento.mp4",
   },
 ];
 
@@ -68,8 +69,13 @@ const PortfolioSection = () => {
             <span className="gradient-text">Portfólio</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            Soluções reais de automação desenvolvidas para melhorar operações, aumentar produtividade e ajudar empresas a crescer com mais eficiência.
+            Desenvolvemos soluções de automação personalizadas para cada negócio.
           </p>
+          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+            Abaixo estão algumas soluções que criamos e que ajudaram empresas a melhorar processos, aumentar produtividade e operar com mais eficiência.
+          </p>    
+
+          
         </motion.div>
 
         {/* Projects */}
@@ -93,17 +99,18 @@ const PortfolioSection = () => {
                       <project.icon size={22} className="text-accent" />
                     </div>
                     <span className="text-xs font-semibold uppercase tracking-widest text-accent">
-                      Projeto {i + 1}
+                      Solução {i + 1}
                     </span>
                   </div>
 
                   <h3 className="font-display font-bold text-xl sm:text-2xl text-foreground mb-4">
-                    {project.title}
+                      {project.title}
                   </h3>
 
                   {project.description.split("\n\n").map((paragraph, pi) => (
                     <p
                       key={pi}
+                      style={{ textAlign: "justify" }}
                       className="text-muted-foreground text-sm leading-relaxed mb-3"
                     >
                       {paragraph}
@@ -146,14 +153,17 @@ const PortfolioSection = () => {
                 {/* Video side */}
                 <div className="flex-1 w-full">
                   <div className="glass-card overflow-hidden rounded-2xl shadow-lg">
-                    <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                      <iframe
-                        src={project.video}
-                        title={project.title}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="absolute inset-0 w-full h-full border-0"
-                      />
+                    <div className="relative w-full">
+                      <video 
+                        className="w-full rounded-xl shadow-lg"
+                        controls
+                        autoPlay
+                        muted
+                        loop
+                      >
+                        <source src={project.video} type="video/mp4" />
+                        Seu navegador não suporta vídeo.
+                      </video>
                     </div>
                   </div>
                 </div>

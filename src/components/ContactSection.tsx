@@ -9,12 +9,57 @@ import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
   const { toast } = useToast();
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const handleSubmit = (e: FormEvent) => {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    toast({ title: "Mensagem enviada!", description: "Retornaremos em breve." });
-    setForm({ name: "", email: "", message: "" });
+
+    setLoading(true);
+
+    try {
+      await fetch(
+        "https://n8n.leetsolutions.com.br/webhook/contato-site",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            message: form.message,
+            origem: "site-leetsolutions",
+            data: new Date().toISOString(),
+          }),
+        }
+      );
+
+      toast({
+        title: "Mensagem enviada!",
+        description: "Retornaremos em breve.",
+      });
+
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      toast({
+        title: "Erro ao enviar mensagem",
+        description: "Tente novamente em alguns instantes.",
+        variant: "destructive",
+      });
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -22,7 +67,7 @@ const ContactSection = () => {
       id="contact"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* 🎥 VIDEO BACKGROUND */}
+      {/* VIDEO BACKGROUND */}
       <video
         autoPlay
         loop
@@ -36,12 +81,13 @@ const ContactSection = () => {
         />
       </video>
 
-      {/* 🌫 OVERLAY + BLUR LEVE */}
+      {/* OVERLAY */}
       <div className="absolute inset-0 bg-black/65 backdrop-blur-sm" />
 
-      {/* 📦 CONTEÚDO */}
+      {/* CONTEÚDO */}
       <div className="relative z-10 section-container text-white">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
+
           {/* LADO ESQUERDO */}
           <motion.div className="p-8 space-y-5 bg-white/10 rounded-2xl border border-white/20">
             <h2 className="text-3xl sm:text-4xl font-display font-bold mb-4">
@@ -70,7 +116,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm text-white/70">WhatsApp</p>
-                  <p className="font-medium">(17) 3198-1626</p>
+                  <p className="font-medium">(17) 99749-9037</p>
                 </div>
               </div>
             </div>
@@ -113,7 +159,9 @@ const ContactSection = () => {
               </label>
               <Textarea
                 value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                onChange={(e) =>
+                  setForm({ ...form, message: e.target.value })
+                }
                 placeholder="Conte-nos sobre o seu projeto..."
                 rows={4}
                 required
@@ -124,9 +172,10 @@ const ContactSection = () => {
             <Button
               type="submit"
               size="lg"
+              disabled={loading}
               className="w-full bg-white text-primary hover:bg-transparent hover:text-white border border-white transition-all duration-300"
             >
-              Enviar Mensagem
+              {loading ? "Enviando..." : "Enviar Mensagem"}
               <Send size={16} className="ml-2" />
             </Button>
           </motion.form>

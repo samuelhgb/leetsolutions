@@ -20,7 +20,7 @@ const WhyChooseSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-4">
-            Por que escolher a <span className="gradient-text">Leet Solutions</span>
+            Por que escolher a Leet <span className="gradient-text">Solutions</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Combinamos expertise técnica profunda com uma abordagem focada no cliente para entregar resultados excepcionais.

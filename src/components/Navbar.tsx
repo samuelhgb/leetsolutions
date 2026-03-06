@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import LeetLogo from "@/components/LeetLogo";
 
 const navLinks = [
   { label: "Sobre", href: "#about" },
@@ -14,34 +15,26 @@ const Navbar = () => {
   const [activeHash, setActiveHash] = useState<string>("#about");
 
   useEffect(() => {
-    const ids = navLinks.map((l) => l.href.replace("#", ""));
-    const sections = ids
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[];
+    const sections = document.querySelectorAll("section[id]");
 
-    // Se não encontrar seções, não faz nada (evita "não funcionou" silencioso)
-    if (sections.length === 0) return;
+    if (!sections.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
-        // pega a seção com maior "visibilidade"
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))[0];
-
-        if (visible?.target?.id) {
-          setActiveHash(`#${visible.target.id}`);
-        }
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveHash(`#${entry.target.id}`);
+          }
+        });
       },
       {
-        // Ajuste fino: considera "ativa" quando entra no meio da tela
         root: null,
-        rootMargin: "-40% 0px -55% 0px",
-        threshold: [0.05, 0.1, 0.2, 0.35, 0.5],
+        rootMargin: "-50% 0px -50% 0px",
+        threshold: 0
       }
     );
 
-    sections.forEach((sec) => observer.observe(sec));
+    sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
   }, []);
@@ -49,20 +42,27 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
       <div className="section-container flex items-center justify-between h-16 md:h-20">
-        <a href="#" className="font-display text-xl font-bold tracking-tight text-gray-900">
-          Leet<span className="gradient-text">Solutions</span>
-        </a>
+
+        <div className="flex items-center gap-2">
+          <LeetLogo />
+          <a href="#" className="font-display text-xl font-bold tracking-tight text-gray-900">
+            Leet <span className="gradient-text">Solutions</span>
+          </a>
+        </div>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => {
             const isActive = activeHash === link.href;
+
             return (
               <a
                 key={link.href}
                 href={link.href}
                 className={`text-sm font-medium transition-colors ${
-                  isActive ? "gradient-text" : "text-gray-600 hover:text-gray-900"
+                  isActive
+                    ? "gradient-text"
+                    : "text-gray-600 hover:text-gray-900"
                 }`}
               >
                 {link.label}
@@ -87,19 +87,23 @@ const Navbar = () => {
           <div className="section-container flex flex-col gap-3">
             {navLinks.map((link) => {
               const isActive = activeHash === link.href;
+
               return (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
                   className={`text-sm font-medium py-2 transition-colors ${
-                    isActive ? "gradient-text" : "text-gray-600 hover:text-gray-900"
+                    isActive
+                      ? "gradient-text"
+                      : "text-gray-600 hover:text-gray-900"
                   }`}
                 >
                   {link.label}
                 </a>
               );
             })}
+
             <Button size="sm" className="w-fit" asChild>
               <a href="#contact" onClick={() => setIsOpen(false)}>
                 Começar
