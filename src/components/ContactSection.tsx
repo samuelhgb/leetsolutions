@@ -13,19 +13,95 @@ const ContactSection = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    phone: "",
     message: "",
   });
 
   const [loading, setLoading] = useState(false);
 
+  // Função para aplicar máscara no telefone
+  const formatPhone = (value: string) => {
+    let v = value.replace(/\D/g, "");
+
+    // formato internacional +55 11 99999-9999
+    if (v.startsWith("55") && v.length > 11) {
+      return v.replace(/^(\d{2})(\d{2})(\d{5})(\d{4}).*/, "+$1 $2 $3-$4");
+    }
+
+    // celular brasileiro
+    if (v.length > 10) {
+      return v.replace(/^(\d{2})(\d{5})(\d{4}).*/, "($1) $2-$3");
+    }
+
+    // telefone fixo
+    if (v.length > 6) {
+      return v.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+    }
+
+    if (v.length > 2) {
+      return v.replace(/^(\d{2})(\d*)/, "($1) $2");
+    }
+
+    return v;
+  };
+
+  const handlePhoneChange = (value: string) => {
+    const formatted = formatPhone(value);
+
+    setForm({
+      ...form,
+      phone: formatted,
+    });
+  };
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^(\+?\d{1,3}\s?)?\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/;
+
+    if (!form.name.trim()) {
+      toast({
+        title: "Nome obrigatório",
+        description: "Por favor informe seu nome.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!emailRegex.test(form.email)) {
+      toast({
+        title: "Email inválido",
+        description: "Digite um email válido. Ex: email@empresa.com",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!phoneRegex.test(form.phone)) {
+      toast({
+        title: "Telefone inválido",
+        description:
+          "Use um formato válido. Ex: (11) 99999-9999",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (form.message.trim().length < 5) {
+      toast({
+        title: "Mensagem muito curta",
+        description: "Descreva um pouco mais sobre seu projeto.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setLoading(true);
 
-    try {
+      try {
       await fetch(
-        "https://n8n.leetsolutions.com.br/webhook-test/contato-site",
+        "https://n8n.leetsolutions.com.br/webhook/contato-site",
         {
           method: "POST",
           headers: {
@@ -147,7 +223,19 @@ const ContactSection = () => {
                 type="email"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                placeholder="your@email.com"
+                placeholder="email@empresa.com"
+                required
+                className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium mb-1.5 block">Telefone</label>
+              <Input
+                type="tel"
+                value={form.phone}
+                onChange={(e) => handlePhoneChange(e.target.value)}
+                placeholder="(11) 99999-9999"
                 required
                 className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
               />
