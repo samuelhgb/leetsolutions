@@ -14,16 +14,142 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      clients: {
+        Row: {
+          api_key: string
+          billing_period: string | null
+          company: string | null
+          created_at: string
+          credits_used: number
+          email: string | null
+          estimated_cost: number
+          id: string
+          is_active: boolean
+          last_credit_reset: string
+          monthly_credit_limit: number
+          name: string
+          plan: string
+          token_usage: number
+          updated_at: string
+        }
+        Insert: {
+          api_key: string
+          billing_period?: string | null
+          company?: string | null
+          created_at?: string
+          credits_used?: number
+          email?: string | null
+          estimated_cost?: number
+          id?: string
+          is_active?: boolean
+          last_credit_reset?: string
+          monthly_credit_limit?: number
+          name: string
+          plan?: string
+          token_usage?: number
+          updated_at?: string
+        }
+        Update: {
+          api_key?: string
+          billing_period?: string | null
+          company?: string | null
+          created_at?: string
+          credits_used?: number
+          email?: string | null
+          estimated_cost?: number
+          id?: string
+          is_active?: boolean
+          last_credit_reset?: string
+          monthly_credit_limit?: number
+          name?: string
+          plan?: string
+          token_usage?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      usage_logs: {
+        Row: {
+          automation_name: string
+          client_id: string
+          credits_consumed: number
+          estimated_cost: number
+          executed_at: string
+          id: string
+          metadata: Json | null
+          status: string
+          token_usage: number
+        }
+        Insert: {
+          automation_name: string
+          client_id: string
+          credits_consumed?: number
+          estimated_cost?: number
+          executed_at?: string
+          id?: string
+          metadata?: Json | null
+          status?: string
+          token_usage?: number
+        }
+        Update: {
+          automation_name?: string
+          client_id?: string
+          credits_consumed?: number
+          estimated_cost?: number
+          executed_at?: string
+          id?: string
+          metadata?: Json | null
+          status?: string
+          token_usage?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "usage_logs_client_id_fkey"
+            columns: ["client_id"]
+            isOneToOne: false
+            referencedRelation: "clients"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      generate_api_key: { Args: never; Returns: string }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      reset_monthly_credits: { Args: never; Returns: undefined }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +276,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+    },
   },
 } as const
