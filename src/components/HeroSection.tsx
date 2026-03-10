@@ -44,24 +44,17 @@ const HeroSection = () => {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="text-base px-8" asChild>
-              <a href="#solutions">
-                Ver Soluções
+              <a href="#contact">
+                Agendar uma conversa
                 <ArrowRight size={18} className="ml-2" />
               </a>
             </Button>
             <Button
               size="lg"
-              className="
-                text-base px-8 
-                bg-white 
-                text-primary 
-                border border-white
-                hover:bg-transparent 
-                hover:text-white
-              "
+              className="text-base px-8 bg-white text-primary border border-white hover:bg-transparent hover:text-white"
               asChild
             >
-              <a href="#contact">Fale Conosco</a>
+              <a href="#how-it-works">Como funciona</a>
             </Button>
           </div>
         </motion.div>
