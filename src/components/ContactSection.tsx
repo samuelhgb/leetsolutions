@@ -163,13 +163,30 @@ const ContactSection = () => {
 
       {/* CONTEÚDO */}
       <div className="relative z-10 section-container text-white">
+        {/* INTRO TEXT */}
+        <motion.div
+          className="text-center max-w-2xl mx-auto mb-14"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-3xl sm:text-4xl font-display font-bold mb-4">
+            <span className="gradient-text">Vamos conversar sobre seu projeto</span>
+          </h2>
+          <p className="text-white/80 text-lg leading-relaxed">
+            Explique brevemente o que você precisa automatizar ou melhorar em sua operação.
+            Nossa equipe analisará seu caso e entrará em contato para entender como podemos ajudar.
+          </p>
+        </motion.div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
 
           {/* LADO ESQUERDO */}
           <motion.div className="p-8 space-y-5 bg-white/10 rounded-2xl border border-white/20">
-            <h2 className="text-3xl sm:text-4xl font-display font-bold mb-4">
+            <h3 className="text-2xl font-display font-bold mb-4">
               <span className="gradient-text">Fale Conosco</span>
-            </h2>
+            </h3>
 
             <p className="text-white/80 text-lg leading-relaxed mb-8">
               Conte-nos sobre o seu negócio e criaremos a solução de automação
