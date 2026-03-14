@@ -11,7 +11,7 @@ const advantages = [
 
 const WhyChooseSection = () => {
   return (
-    <section id="why-us" className="section-padding">
+    <section id="why-us" className="section-padding bg-secondary">
       <div className="section-container">
         <motion.div
           className="text-center mb-16"

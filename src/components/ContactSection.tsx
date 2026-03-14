@@ -101,7 +101,7 @@ const ContactSection = () => {
 
       try {
       await fetch(
-        "https://n8n.leetsolutions.com.br/webhook-test/contato-site",
+        "https://n8n.leetsolutions.com.br/webhook/contato-site",
         {
           method: "POST",
           headers: {
@@ -110,6 +110,7 @@ const ContactSection = () => {
           body: JSON.stringify({
             name: form.name,
             email: form.email,
+            phone: form.phone,
             message: form.message,
             origem: "site-leetsolutions",
             data: new Date().toISOString(),

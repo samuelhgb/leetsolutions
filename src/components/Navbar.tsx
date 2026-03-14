@@ -6,6 +6,7 @@ import LeetLogo from "@/components/LeetLogo";
 const navLinks = [
   { label: "Sobre", href: "#about" },
   { label: "Portfólio", href: "#portfolio" },
+  { label: "Como Funciona", href: "#how-it-works" }, 
   { label: "Diferenciais", href: "#why-us" },
   { label: "Contato", href: "#contact" }
 ];
@@ -46,7 +47,7 @@ const Navbar = () => {
         <div className="flex items-center gap-2">
           <LeetLogo />
           <a href="#" className="font-display text-xl font-bold tracking-tight text-gray-900">
-            Leet <span className="gradient-text">Solutions</span>
+            Leet <span className="c">Solutions</span>
           </a>
         </div>
 
